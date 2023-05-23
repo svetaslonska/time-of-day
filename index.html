@@ -41,8 +41,9 @@
 	</header>
     <main>
 	 <header><h3>A JavaScript Project by YOUR NAME HERE</h3></header>
+	 <h3 id="my-greeting">Greeting goes here</h3>
 	    <p>Explain what your page does and how it works here!</p>
-	  <img src="http://dummyimage.com/300x400" alt="Time of Day Image" class="flexible">
+	  <img id="my-pic" src="http://dummyimage.com/300x400" alt="Time of Day Image" class="flexible">
      <footer>
       <p><small>&copy; 2022 by 
           YOUR NAME HERE, All Rights Reserved ~ 
@@ -52,6 +53,51 @@
     </footer>
   </main>
  <script>
+
+/*
+	Create a web page that uses JavaScript to determine the current hour, 
+	and presents a different image, custom message, and color 
+	based on each of the following times of day:
+
+	Morning (5am to 12 noon)
+	Afternoon (12 noon to 6pm)
+	Evening (6pm to 11pm)
+	Night (11pm to 5am)
+*/
+	let myDate = new Date();
+	let myHour = myDate.getHours();
+	let myGreeting = "";
+	let myColor = "";
+	let myPic = "";
+	//myHour = 7;
+
+	console.log(myHour);
+
+	if(myHour < 12){
+		//alert("good morning!");
+		myGreeting = "Good Morning!";
+		myColor = "orange";
+		myPic = "morning.jpg";
+
+	}else{
+		//alert("good afternoon!");
+		myGreeting = "Good Afternoon!";
+		myColor = "green";
+		myPic = "afternoon.jpg";
+	}
+
+	myPic = "images/" + myPic;
+
+	document.getElementById("my-greeting").innerHTML = myGreeting;
+
+	document.querySelector("html").style.backgroundColor = myColor;
+
+	document.getElementById("my-pic").src = myPic;
+
+
+
+
+
     document.getElementById("html-checker").setAttribute("href","https://validator.w3.org/nu/?doc=" + location.href);
     document.getElementById("css-checker").setAttribute("href","https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);  
  </script>
