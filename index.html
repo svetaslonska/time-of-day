@@ -42,6 +42,7 @@
     <main>
 	 <header><h3>A JavaScript Project by Svitlana Slonska</h3></header>
 	 <h3 id="my-greeting">Greeting goes here</h3>
+	 <h3 id="my-day">Week Day Goes Here</h3>
 	    <p>Explain what your page does and how it works here!Create a web page that uses JavaScript to determine the current hour, 
 			and presents a different image, custom message, and color 
 			based on each of the following times of day:
@@ -70,14 +71,17 @@
 	Afternoon (12 noon to 6pm)
 	Evening (6pm to 11pm)
 	Night (11pm to 5am)
-*/
+	*/
+function displayTimeOfDay() {
 	let myDate = new Date();
 	let myHour = myDate.getHours();
 	let myYear = myDate.getFullYear();
+	let myDay = myDate.getDay();
 	let myGreeting = "";
 	let myColor = "";
 	let myPic = "";
 	//myHour = 3;
+	//myDay = 6;
 
 	console.log(myHour);
 
@@ -103,6 +107,7 @@
 		myPic = "night.jpg";
 	}
 
+
 	myPic = "images/" + myPic;
 
 	document.getElementById("my-greeting").innerHTML = myGreeting;
@@ -112,6 +117,16 @@
 	document.getElementById("my-pic").src = myPic;
 
 	document.getElementById("my-copyright").innerHTML = myYear;
+
+	let daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    let currentDayOfWeek = "Today is " + daysOfWeek[myDay] + "!";
+    document.getElementById("my-day").innerHTML = currentDayOfWeek;
+}
+
+displayTimeOfDay();
+	
+
+
 
 
 
